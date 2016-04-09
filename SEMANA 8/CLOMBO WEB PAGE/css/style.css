@@ -1,0 +1,29 @@
+body {
+	background:#e5e5e5;
+	background: url(../images/bg-01.png);
+	background-size: 1520px 880px;
+    background-repeat: no-repeat;
+	font-family: helvetica;
+	font-weight: 100;
+}
+
+p{
+    color:#9e005d;
+    font-family: helvetica;
+    text-align: center;
+    margin-left: 800px;
+    margin-top: 380px;
+}
+
+.container {
+	text-align: center;
+	margin-left: 800px;
+	margin-top: 40px;
+}
+
+h5 {
+	text-align: center;
+	color: grey;
+	text-decoration: none;
+	margin-top: 160px;
+}
