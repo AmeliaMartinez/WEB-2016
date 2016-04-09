@@ -1,0 +1,25 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
+h5{
+    font-size: 35pt;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Righteous', cursive;
+}
