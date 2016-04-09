@@ -1,0 +1,84 @@
+body {
+  font: Gotham, Arial, sans-serif;
+  font-size: 10px;
+  background: url(../images/body-01.png) 
+ 
+}
+
+.logo {
+ text-align: center;
+}
+
+.gallery {
+  width: 640px;
+  margin: 0 auto;
+  padding: 5px;
+
+}
+
+.gallery > div {
+  position: relative;
+  float: left;
+  padding: 5px;
+}
+
+.gallery > div > img {
+  display: block;
+  width: 195px;
+  -webkit-transition: .1s transform;
+  transition: .1s transform;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.gallery > div:hover {
+  z-index: 1;
+}
+
+.gallery > div:hover > img {
+  -webkit-transform: scale(1.7,1.7);
+          transform: scale(1.7,1.7);
+  -webkit-transition: .3s transform;
+  transition: .3s transform;
+}
+
+.cf:before, .cf:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.cf:after {
+  clear: both;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+  font-family: Gotham, Arial, sans-serif;
+  color: white;
+  line-height: 70px;
+}
+
+h3 {
+  font-size: 15px;
+  text-align: center;
+  font-family: Gotham, Arial, sans-serif;
+  color: white;
+}
+
+.link {
+  color: white;
+  font-family:  Gotham, Arial, sans-serif;
+  text-align: center;
+  font-size: 15px;
+
+}
+
+
+a {
+  color:white;
+
+}
+
+
