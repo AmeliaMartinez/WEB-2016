@@ -1,0 +1,234 @@
+.controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  height: 100%;
+  text-align: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.control {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  pointer-events: auto;
+  visibility: visible;
+}
+.control:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  font-family: 'FontAwesome';
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.prev {
+  left: 0;
+}
+.prev:before {
+  content: '\f104';
+}
+
+.next {
+  right: 0;
+}
+.next:before {
+  content: '\f105';
+}
+
+.pagination {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  text-align: center;
+}
+.pagination span {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 100%;
+}
+.pagination span.active {
+  pointer-events: none;
+}
+
+.baby {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+.baby-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+}
+.baby-item.active ~ * {
+  -webkit-transform: translate(200%, 0);
+          transform: translate(200%, 0);
+}
+.baby-item.active + * {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+}
+.baby-item.active {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.control {
+  width: 15%;
+  font-size: 3.5em;
+}
+
+.pagination {
+  text-align: center;
+}
+.pagination span {
+  height: 1em;
+  width: 1em;
+  margin: 2% 1%;
+  background: rgba(255, 255, 255, 0.5);
+}
+.pagination span:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+.pagination span.active {
+  background: rgba(255, 255, 255, 255);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  position: relative;
+  color: white;
+}
+
+*:before,
+*:after {
+  pointer-events: none;
+}
+
+html {
+  overflow-x: hidden;
+  font-family: 'Oswald';
+}
+
+.baby-item {
+  height: 100vh;
+}
+.baby-item:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 16vmin;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.baby-item:nth-child(1) {
+  background: #75c4d7;
+}
+.baby-item:nth-child(1):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(2) {
+  background: #419aa8;
+}
+.baby-item:nth-child(2):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(3) {
+  background: #77c162;
+}
+.baby-item:nth-child(3):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(4) {
+  background: #c4d735;
+}
+.baby-item:nth-child(4):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(5) {
+  background: #f5d724;
+}
+.baby-item:nth-child(5):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700;
+  color: white; 
+  font-size: 90px;
+
+}
+.baby-item:nth-child(6) {
+  background: #f38c22;
+}
+.baby-item:nth-child(6):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(7) {
+  background: #e965a1;
+}
+.baby-item:nth-child(7):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700; 
+  color: white;
+  font-size: 90px;
+
+}
+.baby-item:nth-child(8) {
+  background: #bf60a5;
+}
+.baby-item:nth-child(8):before {
+  content: "RAINBOW SLIDE";
+  font-family: 'Corben', cursive;
+  font-weight: 700;
+  color: white; 
+  font-size: 90px;
+
+}
+

@@ -1,0 +1,306 @@
+// ========================
+// Slideshow Utilities
+// ========================
+
+// http://css-tricks.com/snippets/sass/covering-mixin/
+
+@mixin cover-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+// ========================
+// Slideshow
+// ========================
+
+@mixin slideshow($max-width: 100%) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+
+// ========================
+// Slide Element
+// ========================
+
+@mixin transit($transformValue, $axis: x) {
+  
+  @if $axis == x {
+    transform: translate($transformValue, 0);
+  } @else {
+    transform: translate(0, $transformValue);
+  }
+  
+}
+
+@mixin slide($effect: fade, $easing: .3s, $axis: x) { 
+  @include cover-element;
+  transition: 
+    opacity $easing,
+    visibility $easing,
+    transform $easing;
+  
+  @if $effect == slide {
+    @include transit(-100%, $axis);
+  } @else {
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  
+  // Inactive slide properties
+  // =========================
+  
+  // All slides after the active slide
+  &.active ~ * {
+    
+    @if $effect == slide {
+      @include transit(200%, $axis);  
+    }
+    
+  }
+  
+  // The slide next to the active slide
+  &.active + * {
+    
+    @if $effect == slide {
+      @include transit(100%, $axis);  
+    }
+    
+  }
+  
+  // Active State
+  // =========================
+  
+  &.active {
+    position: relative;
+
+    @if $effect == slide {
+      @include transit(0);  
+    } @else {
+      pointer-events: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+
+  }
+
+}
+
+
+// ========================
+// Slideshow Controls
+// ========================
+
+.controls {
+  @include cover-element;
+  z-index: 200;
+  height: 100%;
+  text-align: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+  .control { 
+    position: absolute;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    pointer-events: auto;
+    visibility: visible;
+    
+    &:before {
+      @include cover-element;
+      top: 50%;
+      font-family: 'FontAwesome';
+      transform: translate(0, -50%);
+    }
+    
+  }
+  
+  .prev {
+    left: 0;
+
+    &:before {
+      content: '\f104';
+    }
+
+  }
+
+  .next {
+    right: 0;
+
+    &:before {
+      content: '\f105'; 
+    }
+
+  }
+
+
+// ========================
+// Slideshow Pager
+// ========================
+
+.pagination {
+  @include cover-element;
+  z-index: 200;
+  text-align: center;
+  
+  span {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 100%;
+    
+    &.active {
+      pointer-events: none;
+    }
+    
+  }
+  
+}
+
+
+// ========================
+// Slideshow Initialization
+// ========================
+
+// ||------------||
+// ||     ~2     ||
+// ||------------||
+
+.baby {
+  @include slideshow;
+}
+
+
+// ========================
+// Slide Initialization
+// ========================
+
+// ||--||----||--||
+// ||  || ~2 ||  ||
+// ||--||----||--||
+
+.baby-item {
+  @include slide('slide');
+}
+
+
+// ========================
+// Controls Initialization
+// ========================
+
+// < Previous  Next >
+
+.control {
+  width: 15%;
+  font-size: 3.5em;
+}
+
+
+// ========================
+// Pagination Initialization
+// ========================
+  
+// o o o o o
+
+.pagination {
+  text-align: center;
+
+  span {
+    height: 1em;
+    width: 1em;
+    margin: 2% 1%;
+    background: rgba(#fff, .5);
+
+    &:hover {
+      background: rgba(#fff, .75);
+    }
+
+    &.active {
+      background: rgba(#000, .5);
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// ========================
+// Resets
+// ========================
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+*:before,
+*:after { 
+  pointer-events: none; 
+}
+
+
+// ========================
+// Structure
+// ========================
+
+html { 
+  overflow-x: hidden;
+  font-family: 'Oswald';
+}
+
+
+// ========================
+// Presentation
+// ========================
+
+$baby-colors:
+  #16F4D0,
+  #429EA6,
+  #153B50,
+  #f53B50;
+
+.baby-item {
+  height: 100vh;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 16vmin;
+    transform: translate(-50%, -50%);
+  }
+  
+  @for $i from 1 through 4 {
+    
+    &:nth-child(#{$i}) {
+      background: nth($baby-colors, $i);
+      
+      &:before {
+        content: '#{$i}';
+      }
+      
+    }
+    
+  }
+  
+}
